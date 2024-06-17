@@ -1,7 +1,10 @@
 input{
-    padding:5px;
+    padding:10px;
     border-radius: 5px;
     border: none;
     background-color: #efefef;
     margin:10px;
+    color: #121314;
+    font-weight: 520;
+    font-size: 1rem;
 }
