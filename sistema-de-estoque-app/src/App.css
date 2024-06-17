@@ -1,0 +1,14 @@
+.main-theme{
+    --primary-color: #4E4B5C;
+    --secondary-color: #3D315B;
+    --terciary-color: #F7ECE1;
+    --quaternary-color: #CAC4CE;
+    --quintenary-color: #0B0033;
+}
+
+.main-theme-dark{
+    --primary-color: #eee;
+    --secondary-color: #fff;
+    --terciary-color: #aaa;
+    --quaternary-color: #000;
+}
