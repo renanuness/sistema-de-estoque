@@ -2,8 +2,8 @@
     width: 100vw;
     display: flex;
     height: 100vh;
-    background-color: #d93d08;
-    color: #223b77;
+    background-color: var(--primary-color);
+    color: var(--secondary-color);
 }
 
 #loginContainer>div:first-child{

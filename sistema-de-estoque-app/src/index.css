@@ -1,0 +1,12 @@
+*{
+    --primary-color: #d93d08;
+    --secondary-color: #223b77;
+}
+
+
+@media(prefers-color-scheme: dark){
+    *{
+        --primary-color: #1f1f1f;
+        --secondary-color: #afafaf;
+    }
+}
