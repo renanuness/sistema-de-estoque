@@ -23,3 +23,21 @@ body {
     color: var(--terciary-color);
 }
 
+
+/* Common styles */
+
+.text-center{
+    text-align: center;
+}
+
+.flex{
+    display: flex;
+}
+
+.justify-content-center{
+    justify-content: center;
+}
+
+.grid{
+    display: grid;
+}

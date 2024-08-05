@@ -14,21 +14,21 @@ export default function Dashboard() {
     })
 
     function redirect(dest){
-        alert(dest);
+        navigate(dest);
     }
 
     return (
         <div className="dashboard">
-            <div onClick={()=>redirect("estoque")}>
+            <div onClick={()=>redirect("stock")}>
                 <p>Estoque</p>
             </div>
-            <div onClick={()=>redirect("funcionarios")}>
+            <div onClick={()=>redirect("employees")}>
                 <p>Funcionários</p>
             </div>
-            <div onClick={()=>redirect("relatorios")}> 
+            <div onClick={()=>redirect("reports")}> 
                 <p>Relatórios</p>
             </div>
-            <div onClick={()=>redirect("vendas")}> 
+            <div onClick={()=>redirect("sales")}> 
                 <p>Venda</p>
             </div>
         </div>
