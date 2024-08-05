@@ -1,0 +1,38 @@
+table{
+    text-align: center;
+    background-color: var(--quintenary-color);
+    border-collapse: collapse;
+    width: 95%;
+    margin: 0 auto;
+    line-height: 1.2rem;
+}
+
+tr{
+    border-top: 1px solid var(--terciary-color);
+    border-bottom: 1px solid var(--terciary-color);
+}
+
+@media(pointer: fine){
+    tr:hover{
+        background-color: var(--primary-color);
+        color: var(--quintenary-color);
+        cursor: pointer;
+    }
+}
+@media(min-width:768px){
+    table{
+        width: 90%;
+    }
+}
+
+@media(min-width:1024px){
+    table{
+        width: 85%;
+    }
+}
+
+@media(min-width:1440px){
+    table{
+        width: 75%;
+    }
+}
