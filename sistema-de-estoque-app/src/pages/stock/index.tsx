@@ -4,7 +4,7 @@ import styles from './styles.module.css';
 import { Navigate, NavigateProps, useNavigate } from "react-router-dom";
 
 export default function Stock() {
-    const [products, setProducts] = useState([]);
+    const [products, setProducts] = useState<Product[]>([]);
     const navigate = useNavigate();
     
     useEffect(() => {
@@ -15,13 +15,10 @@ export default function Stock() {
         });
     }, [])
 
-    function editProduct(id){
-        navigate(`/stock/edit`, {id: id});
+    function editProduct(id: number){
+        navigate(`/stock/edit`);
     }
 
-    declare function Navigate(props: NavigateProps) {
-        
-    }
     return (<>
         <h1 className="text-center">Produtos</h1>
         <table >

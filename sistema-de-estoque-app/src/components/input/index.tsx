@@ -11,7 +11,7 @@ import VisibilityOff from '@mui/icons-material/VisibilityOff';
 import OutlinedInput from '@mui/material/OutlinedInput';
 import TextField from '@mui/material/TextField';
 
-export function MyInput(props) {
+export function MyInput(props: any) {
     const type = props.type;
     const placeholder = props.placeholder;
     const id = props.id;
