@@ -1,7 +1,7 @@
 import axios from "axios";
 import { useEffect, useState } from "react"
 import styles from './styles.module.css';
-import { useNavigate } from "react-router-dom";
+import { Navigate, NavigateProps, useNavigate } from "react-router-dom";
 
 export default function Stock() {
     const [products, setProducts] = useState([]);
@@ -16,7 +16,11 @@ export default function Stock() {
     }, [])
 
     function editProduct(id){
-        navigate(`/stock/${id}`);
+        navigate(`/stock/edit`, {id: id});
+    }
+
+    declare function Navigate(props: NavigateProps) {
+        
     }
     return (<>
         <h1 className="text-center">Produtos</h1>
@@ -29,7 +33,7 @@ export default function Stock() {
             </thead>
             <tbody>
                 {products.map((product) => (
-                    <tr key={product.id} onClick={editProduct(product.id)}>
+                    <tr key={product.id} onClick={() =>editProduct(product.id)}>
                         <td>{product.title}</td>
                         <td>{product.brand}</td>
                         <td>{product.stock}</td>

@@ -25,7 +25,7 @@ const router = createBrowserRouter([
     element: <Login />
   },
   {
-    path: "/stock/:id",
+    path: "/stock/edit",
     element: <EditProduct/>
   },
   {

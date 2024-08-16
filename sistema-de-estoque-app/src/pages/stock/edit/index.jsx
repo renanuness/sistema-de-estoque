@@ -1,14 +1,15 @@
 import axios from "axios";
 import { useEffect, useState } from "react";
 
-export default function EditProduct(props) {
+export default function EditProduct({route, navigation}) {
     const [product, setProduct] = useState({});
 
+    const productId = route.params.id;
     useEffect(() => {
-        axios.get('https://dummyjson.com/products/1').then((response) => {
+        axios.get('https://dummyjson.com/products/'+productId).then((response) => {
             console.log(response);
             setProduct(response.data);
-        })
+        },[]).catch()
     })
 
     return (
