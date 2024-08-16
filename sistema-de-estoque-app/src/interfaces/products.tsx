@@ -4,5 +4,5 @@ interface Product{
     brand: string;
     stock: number;
     price: number;
-
+    description: string;
 }

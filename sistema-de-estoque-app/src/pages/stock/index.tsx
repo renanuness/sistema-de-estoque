@@ -6,7 +6,7 @@ import { Navigate, NavigateProps, useNavigate } from "react-router-dom";
 export default function Stock() {
     const [products, setProducts] = useState<Product[]>([]);
     const navigate = useNavigate();
-    
+
     useEffect(() => {
         console.log("carregar os produtos");
         axios.get('https://dummyjson.com/products').then(function (response) {
@@ -15,22 +15,27 @@ export default function Stock() {
         });
     }, [])
 
-    function editProduct(id: number){
-        navigate(`/stock/edit`);
+    function editProduct(id: number) {
+        navigate("/stock/edit", { state: { id: id } })
     }
 
     return (<>
         <h1 className="text-center">Produtos</h1>
         <table >
             <thead>
-                <td>Título</td>
-                <td>Marca</td>
-                <td>Quantidade</td>
-                <td>Preço</td>
+                <tr>
+                    <th>Título</th>
+                    <th>Marca</th>
+                    <th>Quantidade</th>
+                    <th>Preço</th>
+                </tr>
             </thead>
             <tbody>
                 {products.map((product) => (
-                    <tr key={product.id} onClick={() =>editProduct(product.id)}>
+                    <tr key={product.id} onClick={() => {
+                        editProduct(product.id);
+
+                    }}>
                         <td>{product.title}</td>
                         <td>{product.brand}</td>
                         <td>{product.stock}</td>
