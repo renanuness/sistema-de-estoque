@@ -40,14 +40,14 @@ export default function ProductForm(props: any) {
             <form onSubmit={handleSubmit(onSubmit)}>
                 <input type="text" {...register("title", { required: "Preencha o título" })} />
                 <p> {errors.title?.message}</p>
-                <input type="text" {...register("description", { required: true })} />
-                <p> {errors.title?.message}</p>
-                <input type="text" {...register("price", { required: true })} />
-                <p> {errors.title?.message}</p>
-                <input type="text" {...register("brand", { required: true })} />
-                <p> {errors.title?.message}</p>
-                <input type="text" {...register("stock", { required: true })} />
-                <p> {errors.title?.message}</p>
+                <input type="text" {...register("description", { required: "Preencha a descrição" })} />
+                <p> {errors.description?.message}</p>
+                <input type="text" {...register("price", { required: "Preencha o preço", min: 0.01 })} />
+                <p> {errors.price?.message}</p>
+                <input type="text" {...register("brand", { required: "Preencha a marca" })} />
+                <p> {errors.brand?.message}</p>
+                <input type="text" {...register("stock", { required: true, min: 0 })} />
+                <p> {errors.stock?.message}</p>
                 <input type="submit" value={"Salvar"} />
             </form>
         </>

@@ -13,6 +13,7 @@ export default function EditProduct() {
     const id = location.state.id;
 
     if(id == null || id == undefined){
+
         navigate("/stock");
     }
     useEffect(() => {
