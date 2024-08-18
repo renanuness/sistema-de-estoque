@@ -2,6 +2,8 @@ import axios from "axios";
 import { useEffect, useState } from "react"
 import styles from './styles.module.css';
 import { Navigate, NavigateProps, useNavigate } from "react-router-dom";
+import { Button } from "@mui/material";
+import CloseButton from "../../components/closeButton";
 
 export default function Stock() {
     const [products, setProducts] = useState<Product[]>([]);
@@ -19,7 +21,13 @@ export default function Stock() {
         navigate("/stock/edit", { state: { id: id } })
     }
 
-    return (<>
+    function back(){
+        navigate("/");
+    }
+
+    return (
+    <div className={styles.mainContainer}>
+        <CloseButton action={back}></CloseButton>
         <h1 className="text-center">Produtos</h1>
         <table >
             <thead>
@@ -32,7 +40,7 @@ export default function Stock() {
             </thead>
             <tbody>
                 {products.map((product) => (
-                    <tr key={product.id} onClick={() => {
+                    <tr className={styles.productRow} key={product.id} onClick={() => {
                         editProduct(product.id);
 
                     }}>
@@ -45,5 +53,5 @@ export default function Stock() {
                 }
             </tbody>
         </table>
-    </>)
+    </div>)
 }

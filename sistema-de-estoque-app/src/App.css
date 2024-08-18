@@ -1,10 +1,19 @@
-* {
+/* * {
     --primary-color: #4E4B5C;
     --secondary-color: #3D315B;
     --terciary-color: #F7ECE1;
     --quaternary-color: #CAC4CE;
     --quintenary-color: rgb(11, 0, 51);
     --shadow-color: rgba(11, 0, 51, 0.75);
+} */
+
+* {
+    --primary-color: #c9c9c9;
+    --secondary-color: #cccccc;
+    --terciary-color: #614b35;
+    --quaternary-color: #CAC4CE;
+    --quintenary-color: rgb(81, 81, 82);
+    --shadow-color: rgba(46, 46, 46, 0.75);
 }
 
 @media(prefers-color-scheme: dark) {

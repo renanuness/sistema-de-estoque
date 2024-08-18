@@ -1,10 +1,11 @@
 import axios from "axios";
-import { title } from "process";
 import { useEffect, useState } from "react";
-import { useForm, SubmitHandler } from "react-hook-form";
-import { NavigateFunction, useLocation, useNavigate, useNavigation } from "react-router-dom";
+import { useLocation, useNavigate } from "react-router-dom";
 import ProductForm from "../../../components/productForm";
 import { Button } from "@mui/material";
+
+import styles from "./styles.module.css";
+import CloseButton from "../../../components/closeButton";
 
 export default function EditProduct() {
     const [product, setProduct] = useState<Product | undefined>();
@@ -25,15 +26,18 @@ export default function EditProduct() {
 
     function save(p: any){
         console.log(p);
+
+        back();
     }
 
     function back(){
         navigate("/stock")
     }
     return (
-        <>
-            <Button onClick={back} variant="contained">X</Button>
-            {product ? <ProductForm product={product} submit={(p:any)=>save(p)}/> : <ProductForm></ProductForm>}
-        </>
+        <div className={styles.formContainer}>
+            <CloseButton action={back}></CloseButton>
+            <h1>Editar produto</h1>
+            {product ? <ProductForm product={product} submit={(p:any)=>save(p)}/> : ""}
+        </div>
     )
 }

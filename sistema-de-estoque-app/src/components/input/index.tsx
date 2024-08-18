@@ -40,6 +40,7 @@ export function MaterialInput(props) {
             return Money(props);
     }
 }
+
 function Text(props) {
     return <TextField onChange={(e) => props.onChange(e.target.value)} label={props.label} id="outlined-size-normal" defaultValue={props.defaultValue} />;
 }

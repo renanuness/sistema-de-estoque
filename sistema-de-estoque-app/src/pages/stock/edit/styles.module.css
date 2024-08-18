@@ -1,0 +1,36 @@
+.formContainer{
+    width: 100%;
+    margin: 0 auto;
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+}
+
+
+.closeButton{
+    position: absolute;
+    top: 10px;
+    left: 10px;;
+}
+
+.formContainer>h1{
+    text-align: center;
+}
+
+@media(min-width: 768px){
+    .formContainer{
+        width: 90%;
+    }
+}
+
+@media(min-width: 1024px){
+    .formContainer{
+        width: 85%;
+    }
+}
+
+@media(min-width: 1440px){
+    .formContainer{
+        width: 75%;
+    }
+}
