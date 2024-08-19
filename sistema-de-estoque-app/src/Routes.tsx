@@ -10,6 +10,7 @@ import {
   import Employees from './pages/employees';
   import Reports from './pages/reports';
   import EditProduct from './pages/stock/edit';
+import AddProduct from './pages/stock/add';
 
 
 const router = createBrowserRouter([
@@ -28,6 +29,10 @@ const router = createBrowserRouter([
     {
       path: "/stock/edit",
       element: <EditProduct/>
+    },
+    {
+      path: "/stock/add",
+      element: <AddProduct/>
     },
     {
       path: "/stock",

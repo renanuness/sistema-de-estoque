@@ -4,6 +4,46 @@
     flex-direction: column;
 }
 
-/* @media(min-width: 768px){
-    .
-} */
+.buttonContainer{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.saveButton:hover{
+    background-color: var(--terciary-color);
+    color: var(--secondary-color);
+}
+
+.deleteButton{
+    border: 1px solid var(--terciary-color);
+    font-size: 1rem;
+}
+
+.deleteButton:hover{
+    background-color: var(--terciary-color);
+    color: var(--secondary-color);
+}
+
+.button{
+    width: 25%;
+    height: 40px;
+}
+
+@media(min-width: 768px){
+    .button{
+        width: 20%;
+    }
+}
+
+@media(min-width: 1024px){
+    .button{
+        width: 15%;
+    }
+}
+
+@media(min-width: 1440px){
+    .button{
+        width: 10%;
+    }
+}

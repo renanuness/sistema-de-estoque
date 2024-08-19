@@ -4,6 +4,7 @@ import styles from './styles.module.css';
 import { Navigate, NavigateProps, useNavigate } from "react-router-dom";
 import { Button } from "@mui/material";
 import CloseButton from "../../components/closeButton";
+import AddButton from "../../components/addButton";
 
 export default function Stock() {
     const [products, setProducts] = useState<Product[]>([]);
@@ -21,37 +22,46 @@ export default function Stock() {
         navigate("/stock/edit", { state: { id: id } })
     }
 
-    function back(){
+    function addProduct() {
+        navigate("/stock/add");
+    }
+
+    function back() {
         navigate("/");
     }
 
     return (
-    <div className={styles.mainContainer}>
-        <CloseButton action={back}></CloseButton>
-        <h1 className="text-center">Produtos</h1>
-        <table >
-            <thead>
-                <tr>
-                    <th>Título</th>
-                    <th>Marca</th>
-                    <th>Quantidade</th>
-                    <th>Preço</th>
-                </tr>
-            </thead>
-            <tbody>
-                {products.map((product) => (
-                    <tr className={styles.productRow} key={product.id} onClick={() => {
-                        editProduct(product.id);
+        <div className={styles.mainContainer}>
+            <div className={styles.headContainer}>
+                <CloseButton action={back} />
+                <h1 className="text-center">Produtos</h1>
+                <AddButton action={addProduct} />
+            </div>
 
-                    }}>
-                        <td>{product.title}</td>
-                        <td>{product.brand}</td>
-                        <td>{product.stock}</td>
-                        <td>{product.price}</td>
+
+            <table >
+                <thead>
+                    <tr>
+                        <th>Título</th>
+                        <th>Marca</th>
+                        <th>Quantidade</th>
+                        <th>Preço</th>
                     </tr>
-                ))
-                }
-            </tbody>
-        </table>
-    </div>)
+                </thead>
+                <tbody>
+                    {products.map((product) => (
+                        <tr className={styles.productRow} key={product.id} onClick={() => {
+                            editProduct(product.id);
+
+                        }}>
+                            <td>{product.title}</td>
+                            <td>{product.brand}</td>
+                            <td>{product.stock}</td>
+                            <td>{product.price}</td>
+                        </tr>
+                    ))
+                    }
+                </tbody>
+            </table>
+        </div>)
 }

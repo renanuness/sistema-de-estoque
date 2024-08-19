@@ -4,6 +4,7 @@ import { SubmitHandler, useForm } from "react-hook-form";
 import * as yup from "yup";
 
 import styles from "./styles.module.css";
+import MaterialButton from "../button";
 
 export default function ProductForm(props: any) {
     const [product, setProduct] = useState(props.product);
@@ -23,10 +24,11 @@ export default function ProductForm(props: any) {
         reset(product);
     }, [product]);
 
-    console.log(props.product);
-
+    const title = props.type == 'add' ? "Adicionar Produto" : "Editar Produto";
+    
     return (
         <>
+            <h1>{title}</h1>
             <form className={styles.form} onSubmit={handleSubmit(onSubmit)}>
                 <TextField label="Título" {...register("title", { required: "Preencha o título" })}/>
                 <p> {errors.title?.message}</p>
@@ -42,8 +44,10 @@ export default function ProductForm(props: any) {
                 
                 <TextField label="Quantidade"  {...register("stock", { required: true, min: 0 })} />
                 <p> {errors.stock?.message}</p>
-                
-                <input type="submit" value={"Salvar"} />
+                <div className={styles.buttonContainer}>
+                <input className={[styles.saveButton, styles.button].join(' ')} type="submit" value={"Salvar"} />
+                <button className={[styles.deleteButton, styles.button].join(' ')} onClick={(e)=>props.delete(e)}>Excluir</button>
+                </div>
             </form>
         </>
     )

@@ -37,11 +37,11 @@ const BootstrapButton = styled(Button)({
     },
     '&:focus': {
       boxShadow: '0 0 0 0.2rem var(--terciary-color)',
-    },
+    }
   });
 
-export default function CloseButton(props: any){
+export default function AddButton(props: any){
     return(
-        <BootstrapButton onClick={props.action} variant="contained">X</BootstrapButton>
+        <BootstrapButton onClick={props.action} variant="contained">+</BootstrapButton>
     );
 }

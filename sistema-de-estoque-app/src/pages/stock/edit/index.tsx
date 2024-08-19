@@ -30,6 +30,13 @@ export default function EditProduct() {
         back();
     }
 
+    function deleteProuct(e : any){
+        e.preventDefault();
+        console.log(typeof(e));
+        console.log(JSON.stringify(e));
+        console.log("Deletando o produto com id: " + product?.id);
+    }
+
     function back(){
         navigate("/stock")
     }
@@ -37,7 +44,7 @@ export default function EditProduct() {
         <div className={styles.formContainer}>
             <CloseButton action={back}></CloseButton>
             <h1>Editar produto</h1>
-            {product ? <ProductForm product={product} submit={(p:any)=>save(p)}/> : ""}
+            {product ? <ProductForm product={product} submit={(p:any)=>save(p)}  delete={(e: any) => deleteProuct(e)}/> : ""}
         </div>
     )
 }

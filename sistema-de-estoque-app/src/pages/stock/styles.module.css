@@ -3,7 +3,14 @@
     display: flex;
     justify-content: center;
     flex-direction: column;
-    margin: 0 auto;
+    margin: 10px auto;
+}
+
+.headContainer{
+    display: flex;
+    justify-content: space-between;
+    width: 100;
+    align-items: center;
 }
 
 table{
@@ -24,7 +31,7 @@ table{
     padding: 3px ;
 }
 
-.backButton{
+/* .backButton{
     color: var(--terciary-color) !important;
     font-size: 1.5rem !important;
     position: absolute;
@@ -33,7 +40,7 @@ table{
     text-align: left !important;
     width: fit-content;
     padding: 0 !important;
-}
+} */
 
 @media(pointer: fine){
     tr:hover{
@@ -66,6 +73,5 @@ table{
 @media(min-width:1440px){
     .mainContainer{
         width: 75%;
-        margin: 0 auto;
     }
 }
