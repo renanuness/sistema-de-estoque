@@ -11,9 +11,13 @@ export default function AddProduct(){
         navigate("/stock")
     }
 
+    function back(){
+        navigate("/stock")
+    }
+
     return (
         <div>
-            <ProductForm submit={(p: any)=>addProduct(p)} type={"add"}></ProductForm>
+            <ProductForm submit={(p: any)=>addProduct(p)} cancel={back} type={"add"}></ProductForm>
         </div>
     );
 }

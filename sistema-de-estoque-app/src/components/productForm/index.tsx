@@ -46,7 +46,10 @@ export default function ProductForm(props: any) {
                 <p> {errors.stock?.message}</p>
                 <div className={styles.buttonContainer}>
                 <input className={[styles.saveButton, styles.button].join(' ')} type="submit" value={"Salvar"} />
-                <button className={[styles.deleteButton, styles.button].join(' ')} onClick={(e)=>props.delete(e)}>Excluir</button>
+                {props.type == 'add' ? 
+                    <button className={[styles.deleteButton, styles.button].join(' ')} onClick={(e)=>props.cancel(e)}>Cancelar</button> :
+                    <button className={[styles.deleteButton, styles.button].join(' ')} onClick={(e)=>props.delete(e)}>Excluir</button> 
+                }
                 </div>
             </form>
         </>

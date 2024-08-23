@@ -11,6 +11,7 @@ import {
   import Reports from './pages/reports';
   import EditProduct from './pages/stock/edit';
 import AddProduct from './pages/stock/add';
+import AddEmployee from './pages/employees/add';
 
 
 const router = createBrowserRouter([
@@ -49,6 +50,10 @@ const router = createBrowserRouter([
     {
       path: "/employees",
       element: <Employees/>
+    },
+    {
+      path: "/employees/add",
+      element: <AddEmployee/>
     }
   ]);
   

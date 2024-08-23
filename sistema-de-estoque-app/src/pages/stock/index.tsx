@@ -1,8 +1,7 @@
 import axios from "axios";
 import { useEffect, useState } from "react"
 import styles from './styles.module.css';
-import { Navigate, NavigateProps, useNavigate } from "react-router-dom";
-import { Button } from "@mui/material";
+import { useNavigate } from "react-router-dom";
 import CloseButton from "../../components/closeButton";
 import AddButton from "../../components/addButton";
 
