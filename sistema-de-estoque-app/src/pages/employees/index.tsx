@@ -27,11 +27,9 @@ export default function Employees() {
         <div className={styles.mainContainer}>
             <div className={styles.headContainer}>
                 <CloseButton action={back} />
-                <h1 className="text-center">Produtos</h1>
+                <h1 className="text-center">Funcionários</h1>
                 <AddButton action={addEmployee} />
             </div>
-
-
             <table >
                 <thead>
                     <tr>
