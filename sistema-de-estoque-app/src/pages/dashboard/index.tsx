@@ -1,8 +1,8 @@
 import { useNavigate } from "react-router-dom";
 import isLogged from "../../utils/auth";
 import { useEffect } from "react";
-import CreateProduct from "../products/create";
 import './styles.css';
+import Header from "../../components/header";
 
 export default function Dashboard() {
     const navigate = useNavigate();
@@ -18,6 +18,8 @@ export default function Dashboard() {
     }
 
     return (
+        <>
+        <Header/>
         <div className="dashboard">
             <div onClick={()=>redirect("stock")}>
                 <p>Estoque</p>
@@ -32,5 +34,6 @@ export default function Dashboard() {
                 <p>Venda</p>
             </div>
         </div>
+        </>
     );
 }
