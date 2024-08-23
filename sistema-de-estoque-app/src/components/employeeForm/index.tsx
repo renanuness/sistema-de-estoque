@@ -24,7 +24,7 @@ export default function ProductForm(props: any) {
         reset(product);
     }, [product]);
 
-    const title = props.type == 'add' ? "Adicionar Produto" : "Editar Produto";
+    const title = props.type == 'add' ? "Adicionar Funcionário" : "Editar Funcionário";
     
     return (
         <>
@@ -46,7 +46,11 @@ export default function ProductForm(props: any) {
                 <p> {errors.hireDate?.message}</p>
                 <div className={styles.buttonContainer}>
                 <input className={[styles.saveButton, styles.button].join(' ')} type="submit" value={"Salvar"} />
-                <button className={[styles.deleteButton, styles.button].join(' ')} onClick={(e)=>props.delete(e)}>Excluir</button>
+                {
+                     props.type == 'add' ? 
+                     <button className={[styles.deleteButton, styles.button].join(' ')} onClick={(e)=>props.cancel(e)}>Cancelar</button>:
+                     <button className={[styles.deleteButton, styles.button].join(' ')} onClick={(e)=>props.delete(e)}>Excluir</button>
+                }
                 </div>
             </form>
         </>

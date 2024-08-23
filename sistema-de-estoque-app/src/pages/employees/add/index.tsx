@@ -8,12 +8,15 @@ export default function AddEmployee(){
 
         console.log(employee);
 
-        navigate("/employee")
+        back();
     }
 
+    function back(){
+        navigate("/employees")
+    }
     return (
         <div>
-            <EmployeeForm submit={(e: any)=>addEmployee(e)} type={"add"}></EmployeeForm>
+            <EmployeeForm submit={(e: any)=>addEmployee(e)} cancel={back} type={"add"}></EmployeeForm>
         </div>
     );
 }

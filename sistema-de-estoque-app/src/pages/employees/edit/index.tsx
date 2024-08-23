@@ -1,13 +1,13 @@
 import axios from "axios";
 import { useEffect, useState } from "react";
 import { useLocation, useNavigate } from "react-router-dom";
-import ProductForm from "../../../components/productForm";
+import EmployeeForm from "../../../components/employeeForm";
 
 import styles from "./styles.module.css";
 import CloseButton from "../../../components/closeButton";
 
-export default function EditProduct() {
-    const [product, setProduct] = useState<Product | undefined>();
+export default function EditEmployee(){
+    const [employee, setEmployee] = useState<Employee | undefined>();
     const location = useLocation();
     const navigate = useNavigate();
     const id = location.state.id;
@@ -16,12 +16,6 @@ export default function EditProduct() {
 
         navigate("/stock");
     }
-    useEffect(() => {
-        axios.get('https://dummyjson.com/products/' + location.state.id).then((response: any) => {
-            console.log(response);
-            setProduct(response.data);
-        });
-    }, [])
 
     function save(p: any){
         console.log(p);
@@ -29,21 +23,23 @@ export default function EditProduct() {
         back();
     }
 
-    function deleteProuct(e : any){
+    function deleteEmployee(e : any){
         e.preventDefault();
         console.log(typeof(e));
         console.log(JSON.stringify(e));
-        console.log("Deletando o produto com id: " + product?.id);
+        console.log("Deletando o produto com id: " + employee?.id);
+        back();
     }
 
     function back(){
-        navigate("/stock")
+        navigate("/employees");
     }
+
     return (
         <div className={styles.formContainer}>
             <CloseButton action={back}></CloseButton>
             <h1>Editar produto</h1>
-            {product ? <ProductForm product={product} submit={(p:any)=>save(p)}  delete={(e: any) => deleteProuct(e)}/> : ""}
+            {product ? <EmployeeForm product={product} submit={(p:any)=>save(p)}  delete={(e: any) => deleteEmployee(e)}/> : ""}
         </div>
     )
 }
