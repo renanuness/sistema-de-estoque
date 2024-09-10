@@ -1,8 +1,7 @@
 import {MyInput, MaterialInput} from '../../../components/input';
 import { signIn } from '../../../utils/auth';
-import './styles.css'
+import styles from './styles.module.css'
 
-import estoqueBg from '../../../assets/estoque-bg.png';
 import { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 
@@ -23,7 +22,7 @@ export default function Login() {
     }
 
     return (
-        <div id="loginContainer">
+        <div className={styles.loginContainer}>
             <h1> Sistema de Estoque</h1>
                 <MaterialInput label="Email" type="text" onChange={(a: string)=>setEmail(a)}></MaterialInput>
                 <MaterialInput label="Senha" type="password" onChange={(a: string)=>setPassword(a)}></MaterialInput>
