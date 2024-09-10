@@ -6,6 +6,8 @@ import EmployeeForm from "../../../components/employeeForm";
 import styles from "./styles.module.css";
 import CloseButton from "../../../components/closeButton";
 
+import { getEmployeeById } from "../../../mock/employees";
+
 export default function EditEmployee(){
     const [employee, setEmployee] = useState<Employee | undefined>();
     const location = useLocation();
@@ -16,6 +18,12 @@ export default function EditEmployee(){
 
         navigate("/stock");
     }
+    
+    useEffect(()=>{
+        let e = getEmployeeById(id);
+        console.log(e);
+        setEmployee(e);
+    })
 
     function save(p: any){
         console.log(p);
@@ -27,7 +35,7 @@ export default function EditEmployee(){
         e.preventDefault();
         console.log(typeof(e));
         console.log(JSON.stringify(e));
-        console.log("Deletando o produto com id: " + employee?.id);
+        console.log("Deletando o funcionário com id: " + employee?.id);
         back();
     }
 
@@ -38,8 +46,7 @@ export default function EditEmployee(){
     return (
         <div className={styles.formContainer}>
             <CloseButton action={back}></CloseButton>
-            <h1>Editar produto</h1>
-            {product ? <EmployeeForm product={product} submit={(p:any)=>save(p)}  delete={(e: any) => deleteEmployee(e)}/> : ""}
+            {employee ? <EmployeeForm employee={employee} submit={(p:any)=>save(p)}  delete={(e: any) => deleteEmployee(e)}/> : ""}
         </div>
     )
 }

@@ -4,16 +4,18 @@ import styles from './styles.module.css';
 import { useNavigate } from "react-router-dom";
 import CloseButton from "../../components/closeButton";
 import AddButton from "../../components/addButton";
+import { getAllProducts } from "../../services/service";
+
 
 export default function Stock() {
     const [products, setProducts] = useState<Product[]>([]);
+    const [curentPage, setCurrentPage] = useState(1);
     const navigate = useNavigate();
 
     useEffect(() => {
-        console.log("carregar os produtos");
-        axios.get('https://dummyjson.com/products').then(function (response) {
-            setProducts(response.data.products);
-            console.log(response);
+        getAllProducts(1, 30).then(data=>{
+            console.log(data);
+            setProducts(data.products)
         });
     }, [])
 

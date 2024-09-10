@@ -42,7 +42,6 @@ export default function EditProduct() {
     return (
         <div className={styles.formContainer}>
             <CloseButton action={back}></CloseButton>
-            <h1>Editar produto</h1>
             {product ? <ProductForm product={product} submit={(p:any)=>save(p)}  delete={(e: any) => deleteProuct(e)}/> : ""}
         </div>
     )
