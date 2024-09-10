@@ -19,16 +19,16 @@ export default function Dashboard() {
 
     return (
         <div className="dashboard">
-            <div onClick={()=>redirect("stock")}>
+            <div onClick={()=>redirect("/stock")}>
                 <p>Estoque</p>
             </div>
-            <div onClick={()=>redirect("employees")}>
+            <div onClick={()=>redirect("/employees")}>
                 <p>Funcionários</p>
             </div>
-            <div onClick={()=>redirect("reports")}> 
+            <div onClick={()=>redirect("/reports")}> 
                 <p>Relatórios</p>
             </div>
-            <div onClick={()=>redirect("sales")}> 
+            <div onClick={()=>redirect("/sales")}> 
                 <p>Venda</p>
             </div>
         </div>
