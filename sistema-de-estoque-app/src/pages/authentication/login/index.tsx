@@ -24,17 +24,10 @@ export default function Login() {
 
     return (
         <div id="loginContainer">
-            <div>
-                <img src={estoqueBg} />
-            </div>
-            <div>
-                <img src={estoqueBg} id="loginLogo"/>
-                {/* <MyInput type="email" placeholder='Email' id="emailInput" ></MyInput>
-                <MyInput type="password" placeholder='Senha' id="passwordInput" ></MyInput> */}
-                <MaterialInput label="Email" type="text" onChange={(a)=>setEmail(a)}></MaterialInput>
-                <MaterialInput label="Senha" type="password" onChange={(a)=>setPassword(a)}></MaterialInput>
+            <h1> Sistema de Estoque</h1>
+                <MaterialInput label="Email" type="text" onChange={(a: string)=>setEmail(a)}></MaterialInput>
+                <MaterialInput label="Senha" type="password" onChange={(a: string)=>setPassword(a)}></MaterialInput>
                 <button onClick={login}>Entrar</button>
-            </div>
         </div>
     )
 }
