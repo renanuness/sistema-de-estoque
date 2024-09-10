@@ -15,3 +15,12 @@ function App() {
 }
 
 export default App
+
+
+/**
+ * Página de vendas
+ * Página de relatórios
+ * Esqueci minha senha
+ * Melhorar estilo
+ * Gesture?git
+ */
