@@ -1,19 +1,22 @@
 import { useEffect, useState } from "react";
 
 import styles from './styles.module.css';
+import { useNavigate } from "react-router-dom";
 
 export default function ListProductsSale(props: any){
     const [products, setProducts] = useState(props.products);
     const [totalPrice, setTotalPrice] = useState(0);
 
     useEffect(()=>{
+        setProducts(props.products);
         let p = 0;
-        for(let i = 0; i < products.length; i++){
-            p += products[i].price * products[i].amount; 
+        for(let i = 0; i < props.products.length; i++){
+            p += props.products[i].price * props.products[i].amount; 
         }
 
+        console.log(JSON.stringify(products));
         setTotalPrice(p);
-    }, [products])
+    }, [props])
 
     return (
         <div>
@@ -28,7 +31,7 @@ export default function ListProductsSale(props: any){
                 </thead>
                 <tbody>
                     {products.map((product: any) =>{
-                        <tr>
+                      return  <tr>
                             <td>{product.title}</td>
                             <td>{product.amount}</td>
                             <td>{product.price}</td>
@@ -39,7 +42,7 @@ export default function ListProductsSale(props: any){
                 <tfoot>
                     <tr>
                         <td>Preço total</td>
-                        <td>{}</td>
+                        <td>{totalPrice}</td>
                     </tr>
                 </tfoot>
             </table>

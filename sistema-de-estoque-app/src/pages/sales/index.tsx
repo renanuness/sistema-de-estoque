@@ -7,12 +7,15 @@ import { getAllProducts } from "../../services/service";
 
 import styles from './styles.module.css';
 import ListProductsSale from "../../components/listProductsSale";
+import { useNavigate } from "react-router-dom";
 
 interface SearchLabel {
     id: number,
     label: string
 }
 export default function Sales() {
+    const navigate = useNavigate();
+
     const [products, setProducts] = useState<Product[]>([]);
     const [productsLabel, setLabels] = useState<SearchLabel[]>([]);
 
@@ -24,13 +27,12 @@ export default function Sales() {
     const [productsSale, setProductsSale] = useState<Product[]>([]);
 
     function addProduct(amount: number) {
-        if (selectedProduct == null || selectedProduct == undefined) return;
+        if (selectedProduct == null || selectedProduct == undefined || amount == 0) return;
         if (productsSale.includes(selectedProduct)) {
             return;
         }
         selectedProduct.amount = amount;
         setProductsSale([...productsSale, selectedProduct]);
-        console.log(productsSale);
     }
 
     useEffect(() => {
@@ -58,6 +60,9 @@ export default function Sales() {
         }
     }, [value]);
 
+    function finishSale(){
+        navigate("/");
+    }
 
     return (
         <div className={styles.container}>
@@ -78,6 +83,10 @@ export default function Sales() {
             />
             <ProductSaleCard addProduct={(amount: number) => addProduct(amount)} product={selectedProduct} />
             <ListProductsSale products={productsSale}/>
+            <div>
+                <button onClick={finishSale}>Concluir venda</button>
+                <button onClick={()=>navigate("/")}>Voltar</button>
+            </div>
         </div>
     )
 }

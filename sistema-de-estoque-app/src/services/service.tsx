@@ -4,7 +4,7 @@ import axios from "axios";
 
 export function getAllProducts(page: number, pageSize: number){
         return axios.get('https://dummyjson.com/products?skip='+(page-1)*pageSize+'&limit='+pageSize)
-        .then(res => {console.log(res);return res.data})
+        .then(res => {return res.data})
         .catch(er =>{
             console.log(er);
         })
