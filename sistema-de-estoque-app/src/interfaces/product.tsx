@@ -5,4 +5,5 @@ interface Product{
     stock: number;
     price: number;
     description: string;
+    amount: number;
 }

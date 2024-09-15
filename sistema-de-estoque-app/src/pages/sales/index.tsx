@@ -1,8 +1,14 @@
 import { Autocomplete, TextField } from "@mui/material";
 import { useEffect, useState } from "react";
+
+import ProductSaleCard from "../../components/productSaleCard";
+
 import { getAllProducts } from "../../services/service";
 
-interface SearchLabel{
+import styles from './styles.module.css';
+import ListProductsSale from "../../components/listProductsSale";
+
+interface SearchLabel {
     id: number,
     label: string
 }
@@ -15,58 +21,69 @@ export default function Sales() {
 
     const [selectedProduct, setSelectedProduct] = useState<Product>();
 
+    const [productsSale, setProductsSale] = useState<Product[]>([]);
+
+    function addProduct(amount: number) {
+        if (selectedProduct == null || selectedProduct == undefined) return;
+        if (productsSale.includes(selectedProduct)) {
+            return;
+        }
+        selectedProduct.amount = amount;
+        setProductsSale([...productsSale, selectedProduct]);
+        console.log(productsSale);
+    }
+
     useEffect(() => {
         getAllProducts(1, 200).then(data => {
             setProducts(data.products);
         })
-    },[]);
+    }, []);
 
-    useEffect(()=>{
+    useEffect(() => {
         let labels: SearchLabel[] = [];
         products?.forEach(product => {
             labels.push({
-                label:product.title, 
-                id:product.id
+                label: product.title,
+                id: product.id
             })
         });
 
         setLabels(labels);
-    },[products])
+    }, [products])
 
-    useEffect(()=>{
+    useEffect(() => {
         let p = products.filter(p => p.id == value?.id);
-        if(p != null){
+        if (p != null) {
             setSelectedProduct(p[0]);
         }
-    },[value]);
+    }, [value]);
 
-    function productInfo(){
-        return selectedProduct ? 
-        (
-            <>
-                <h1>{selectedProduct.title}</h1>
-                <h1>{selectedProduct.price}</h1>
-                <h1>{selectedProduct.stock}</h1>
-                <h1>{selectedProduct.title}</h1>
-            </>
-        ):'';
-    }
-    return (<>
-        <Autocomplete
-            disablePortal
-            noOptionsText='Sem produtos disponíveis'
-            options={productsLabel}
-            sx={{ width: 500 }}
-            value={value}
-            onChange={(_: any, newValue: SearchLabel | null) => {
-              setValue(newValue);
-            }}
-            inputValue={inputValue}
-            onInputChange={(event, newInputValue) => {
-              setInputValue(newInputValue);
-            }}
-            renderInput={(params) => <TextField{...params} label="Produto" />}
-        />
-        { productInfo()}
-    </>)
+
+    return (
+        <div className={styles.container}>
+            <Autocomplete
+                disablePortal
+                noOptionsText='Sem produtos disponíveis'
+                options={productsLabel}
+                sx={{ width: 500 }}
+                value={value}
+                onChange={(_: any, newValue: SearchLabel | null) => {
+                    setValue(newValue);
+                }}
+                inputValue={inputValue}
+                onInputChange={(event, newInputValue) => {
+                    setInputValue(newInputValue);
+                }}
+                renderInput={(params) => <TextField{...params} label="Produto" />}
+            />
+            <ProductSaleCard addProduct={(amount: number) => addProduct(amount)} product={selectedProduct} />
+            <ListProductsSale products={productsSale}/>
+        </div>
+    )
 }
+
+/**
+ * Adicionar no carrinho
+ * Realizar a venda
+ * Listar funcionários
+ */
