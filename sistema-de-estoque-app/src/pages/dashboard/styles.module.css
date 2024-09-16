@@ -9,6 +9,7 @@
 
 .dashboard>div{
     display: flex;
+    flex-direction: column;
     justify-content: center;
     align-items: center;
     box-shadow: 10px 10px 5px 0px rgba(0,0,0,0.75);
@@ -26,6 +27,7 @@
 box-shadow: 1px -1px 15px 10px var(--shadow-color);
 -webkit-box-shadow: 1px -1px 15px 10px  var(--shadow-color);
 -moz-box-shadow: 1px -1px 15px 10px var(--shadow-color);
+cursor: pointer;
 }
 
 @media( min-width: 768px){

@@ -1,0 +1,53 @@
+.container{
+    display: flex;
+    flex-direction: column;
+    width: 80%;
+    margin: 0 auto;
+    justify-content: center;
+}
+
+.leftContainer{
+    padding: 8px;
+}
+
+.rightContainer{
+    margin-top: 40px;
+}
+
+.btnContainer{
+    display: flex;
+    justify-content: center;
+    gap: 25px;
+    margin-top: 20px;
+}
+
+.btnContainer>button{
+    background-color: var(--secondary-color);
+    color: var(--quaternary-color);
+    padding: 8px;
+    border: 1px solid var(--primary-color);
+}
+
+.btnContainer>button:first-child{
+    background-color: rgb(92, 177, 92);
+}
+
+.btnContainer>button:last-child{
+    background-color: red;
+}
+
+@media(min-width:1025px){
+    .container{
+        display: flex;
+        flex-direction: row;
+        width: 90%;
+        margin: 0 auto;
+        gap:30px;
+        justify-content: center;
+    }   
+
+    .rightContainer{
+        margin-top: 0px;
+    }
+    
+}

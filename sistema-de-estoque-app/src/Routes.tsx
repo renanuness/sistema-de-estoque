@@ -12,6 +12,7 @@ import {
   import EditProduct from './pages/stock/edit';
 import AddProduct from './pages/stock/add';
 import AddEmployee from './pages/employees/add';
+import EditEmployee from './pages/employees/edit';
 
 
 const router = createBrowserRouter([
@@ -54,6 +55,10 @@ const router = createBrowserRouter([
     {
       path: "/employees/add",
       element: <AddEmployee/>
+    },
+    {
+      path: "/employees/edit",
+      element: <EditEmployee/>
     }
   ]);
   

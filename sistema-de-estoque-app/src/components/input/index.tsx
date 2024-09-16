@@ -42,7 +42,7 @@ export function MaterialInput(props) {
 }
 
 function Text(props) {
-    return <TextField onChange={(e) => props.onChange(e.target.value)} label={props.label} id="outlined-size-normal" defaultValue={props.defaultValue} />;
+    return <TextField onChange={(e) => props.onChange(e.target.value)} label={props.label} id="outlined-size-normal" sx={{width: '40%'}} defaultValue={props.defaultValue} />;
 }
 
 function Password(props) {
