@@ -59,11 +59,12 @@ export async function signIn(email, password){
             const errorMessage = error.message;
         });
 }
-export default function isLogged(){
-    console.log("User: " + window.localStorage.getItem("user"));
-    console.log(window.localStorage.getItem("user") != null);
-    return window.localStorage.getItem("user") != null;
-}
+
+// export default function isLogged(){
+//     console.log("User: " + window.localStorage.getItem("user"));
+//     console.log(window.localStorage.getItem("user") != null);
+//     return window.localStorage.getItem("user") != null;
+// }
 
 
 const userMock = {

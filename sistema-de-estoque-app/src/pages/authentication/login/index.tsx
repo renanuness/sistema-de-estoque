@@ -1,32 +1,43 @@
-import {MyInput, MaterialInput} from '../../../components/input';
-import { signIn } from '../../../utils/auth';
+import { MyInput, MaterialInput } from '../../../components/input';
+import { useAuth } from '../../../contexts/authContext';
+
 import styles from './styles.module.css'
 
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 
 export default function Login() {
+    const { signIn, createUser, isLogged } = useAuth()
     const navigate = useNavigate();
     const [email, setEmail] = useState("");
     const [password, setPassword] = useState("");
 
     //TODO: useEffect
-    if(window.localStorage.getItem("user") != null){
-        navigate("/dashboard");
-    }
+    useEffect(() => {
+        if (isLogged) {
+            navigate("/dashboard");
+        }
+    }, [])
+
 
     async function login() {
         //TODO: Fazer o método esperar
-        await signIn(email, password);
-        navigate("/dashboard");
+        let result = await signIn(email, password);
+        console.log(result)
+        if (result) {
+            console.log("go to dashboard");
+            navigate("/dashboard")
+        }else{
+            console.log("stay there")
+        }
     }
 
     return (
         <div className={styles.loginContainer}>
             <h1> Sistema de Estoque</h1>
-                <MaterialInput label="Email" type="text" onChange={(a: string)=>setEmail(a)}></MaterialInput>
-                <MaterialInput label="Senha" type="password" onChange={(a: string)=>setPassword(a)}></MaterialInput>
-                <button onClick={login}>Entrar</button>
+            <MaterialInput label="Email" type="text" onChange={(a: string) => setEmail(a)}></MaterialInput>
+            <MaterialInput label="Senha" type="password" onChange={(a: string) => setPassword(a)}></MaterialInput>
+            <button onClick={login}>Entrar</button>
         </div>
     )
 }
