@@ -60,32 +60,36 @@ export default function Sales() {
         }
     }, [value]);
 
-    function finishSale(){
+    function finishSale() {
         navigate("/");
     }
 
     return (
         <div className={styles.container}>
-            <Autocomplete
-                disablePortal
-                noOptionsText='Sem produtos disponíveis'
-                options={productsLabel}
-                sx={{ width: 500 }}
-                value={value}
-                onChange={(_: any, newValue: SearchLabel | null) => {
-                    setValue(newValue);
-                }}
-                inputValue={inputValue}
-                onInputChange={(event, newInputValue) => {
-                    setInputValue(newInputValue);
-                }}
-                renderInput={(params) => <TextField{...params} label="Produto" />}
-            />
-            <ProductSaleCard addProduct={(amount: number) => addProduct(amount)} product={selectedProduct} />
-            <ListProductsSale products={productsSale}/>
-            <div>
-                <button onClick={finishSale}>Concluir venda</button>
-                <button onClick={()=>navigate("/")}>Voltar</button>
+            <div className={styles.leftContainer}>
+                <Autocomplete
+                    disablePortal
+                    noOptionsText='Sem produtos disponíveis'
+                    options={productsLabel}
+                    sx={{ width: 500 }}
+                    value={value}
+                    onChange={(_: any, newValue: SearchLabel | null) => {
+                        setValue(newValue);
+                    }}
+                    inputValue={inputValue}
+                    onInputChange={(event, newInputValue) => {
+                        setInputValue(newInputValue);
+                    }}
+                    renderInput={(params) => <TextField{...params} label="Produto" />}
+                />
+                <ProductSaleCard addProduct={(amount: number) => addProduct(amount)} product={selectedProduct} />
+            </div>
+            <div className={styles.rightContainer}>
+                <ListProductsSale products={productsSale} />
+                <div className={styles.btnContainer}>
+                    <button onClick={finishSale}>Concluir venda</button>
+                    <button onClick={() => navigate("/")}>Voltar</button>
+                </div>
             </div>
         </div>
     )

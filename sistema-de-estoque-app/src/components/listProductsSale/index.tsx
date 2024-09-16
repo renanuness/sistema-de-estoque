@@ -19,7 +19,7 @@ export default function ListProductsSale(props: any){
     }, [props])
 
     return (
-        <div>
+        <div className={styles.container}>
             <table>
                 <thead>
                     <tr>
@@ -41,7 +41,7 @@ export default function ListProductsSale(props: any){
                 </tbody>
                 <tfoot>
                     <tr>
-                        <td>Preço total</td>
+                        <td colSpan={3}>Preço total</td>
                         <td>{totalPrice}</td>
                     </tr>
                 </tfoot>
