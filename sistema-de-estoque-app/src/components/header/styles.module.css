@@ -1,0 +1,10 @@
+.container{
+    background-color: var(--quintenary-color);
+    display: flex;
+}
+
+.container>ul{
+    display: flex;
+    gap: 20px;
+    justify-content: center;
+}
