@@ -1,0 +1,30 @@
+h1{
+    text-align: center;
+}
+
+.container{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    gap: 40px;
+}
+
+.monthContainer{
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+}
+
+.categoryContainer{
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+}
+
+.barChart{
+    margin: 0 auto;
+}
+
+.pieChart{
+    margin: 0 auto;
+}
