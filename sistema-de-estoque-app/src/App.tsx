@@ -19,17 +19,10 @@ import Reports from './pages/reports/index.js';
 
 const PrivateRoute = ({ children }) => {
   const { isLogged } = useAuth();
-  console.log(isLogged);
-  return isLogged ? children : <Navigate to="/login" />;
+  console.log(isLogged());
+  return isLogged() ? children : <Navigate to="/login" />;
 };
 
-function App2() {
-  return (
-    <>
-      {/* <Routes></Routes> */}
-    </>
-  )
-}
 
 function App() {
   return (
@@ -121,7 +114,7 @@ function App() {
           />
 
           <Route
-            path="/editEmployees"
+            path="/employees/edit"
             element={
               <PrivateRoute>
                 <Header />
@@ -131,7 +124,7 @@ function App() {
           />
 
           <Route
-            path="/addEmployees"
+            path="/employees/add"
             element={
               <PrivateRoute>
                 <Header />

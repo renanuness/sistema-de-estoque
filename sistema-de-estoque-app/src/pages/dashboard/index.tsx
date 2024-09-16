@@ -1,7 +1,8 @@
 import { useNavigate } from "react-router-dom";
 import { useEffect } from "react";
 import CreateProduct from "../products/create";
-import './styles.css';
+import styles from "./styles.module.css";
+
 
 export default function Dashboard() {
     const navigate = useNavigate();
@@ -12,18 +13,22 @@ export default function Dashboard() {
     }
 
     return (
-        <div className="dashboard">
+        <div className={styles.dashboard}>
             <div onClick={()=>redirect("/stock")}>
-                <p>Estoque</p>
+                <h2>Estoque</h2>
+                <p>Gerencie os produtos!</p>
             </div>
             <div onClick={()=>redirect("/employees")}>
-                <p>Funcionários</p>
+                <h2>Funcionários</h2>
+                <p>Gerencie os funcionários!</p>
             </div>
             <div onClick={()=>redirect("/reports")}> 
-                <p>Relatórios</p>
+                <h2>Relatórios</h2>
+                <p>Acesse relatórios sobre vendas!</p>
             </div>
             <div onClick={()=>redirect("/sales")}> 
-                <p>Venda</p>
+                <h2>Venda</h2>
+                <p>Realize uma venda!</p>
             </div>
         </div>
     );

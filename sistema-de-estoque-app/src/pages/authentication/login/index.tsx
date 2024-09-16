@@ -14,7 +14,7 @@ export default function Login() {
 
     //TODO: useEffect
     useEffect(() => {
-        if (isLogged) {
+        if (isLogged()) {
             navigate("/dashboard");
         }
     }, [])
